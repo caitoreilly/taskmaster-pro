@@ -12,6 +12,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Taskmaster Pro</title>
   </head>
@@ -21,19 +29,27 @@
       <header
         class="col-12 col-lg-3 bg-dark text-light sticky-top d-flex flex-column p-4 p-lg-3"
       >
-        <h1 class="text-center">Taskmaster Pro Edition</h1>
+        <h1 class="text-center">
+          <span class="oi oi-task d-inline d-lg-none"></span>Taskmaster Pro
+          Edition
+        </h1>
         <button
           id="create-task"
-          class="btn btn-block btn-success"
+          class="btn btn-block btn-add"
           data-toggle="modal"
           data-target="#task-form-modal"
         >
+          <span class="oi oi-plus mr-2"></span>
           Add Task
         </button>
-        <button id="remove-tasks" class="btn btn-block btn-danger">
+        <button id="remove-tasks" class="btn btn-block btn-delete mb-2 mb-md-4">
+          <span class="oi oi-trash mr-2"></span>
           Delete All Tasks
         </button>
-        <p class="mt-auto d-none d-lg-block">
+        <span
+          class="oi oi-task display-1 text-center mb-2 d-none d-lg-block mt-auto"
+        ></span>
+        <p class="d-none d-lg-block">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi voluptas
           architecto ipsa excepturi aut non laudantium sequi fugit officiis
           optio deleniti asperiores rem eius laborum maxime blanditiis culpa,
@@ -45,37 +61,34 @@
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <div class="card">
               <h2 class="card-header bg-dark text-light">To Do</h2>
-              <ul id="list-toDo" class="list-group list-group-flush">
-              </ul>
+              <ul id="list-toDo" class="list-group list-group-flush"></ul>
             </div>
           </div>
           <!-- in progress starts here-->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <div class="card">
               <h2 class="card-header bg-dark text-light">In Progress</h2>
-              <ul id="list-inProgress" class="list-group list-group-flush">
-              </ul>
+              <ul id="list-inProgress" class="list-group list-group-flush"></ul>
             </div>
           </div>
           <!--in review starts here-->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <div class="card">
               <h2 class="card-header bg-dark text-light">In Review</h2>
-              <ul id="list-inReview" class="list-group list-group-flush">
-              </ul>
+              <ul id="list-inReview" class="list-group list-group-flush"></ul>
             </div>
           </div>
           <!--done starts here-->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <div class="card">
               <h2 class="card-header bg-dark text-light">Done</h2>
-              <ul id="list-done" class="list-group list-group-flush">
-              </ul>
+              <ul id="list-done" class="list-group list-group-flush"></ul>
             </div>
           </div>
         </div>
-        <div id="trash" class="mt-auto">
-          <div class="w-100 bg-danger p-3 text-center text-light display-4">
+        <div id="trash" class="mt-auto overflow-hidden">
+          <div class="w-100 p-3 text-center bottom-trash">
+            <span class="oi oi-trash"></span>
             Drop Here to Remove
           </div>
         </div>
@@ -127,14 +140,10 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
+            <button type="button" class="btn btn-close" data-dismiss="modal">
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save Task</button>
+            <button type="button" class="btn btn-save">Save Task</button>
           </div>
         </div>
       </div>
