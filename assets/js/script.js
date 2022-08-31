@@ -89,12 +89,12 @@ $(".card .list-group").sortable({
   activate: function (event) {
     console.log("activate", this);
     $(this).addClass("dropover");
-    $(".bottom-trash").addClass(".bottom-trash-drag");
+    $(".bottom-trash").addClass("bottom-trash-drag");
   },
   deactivate: function (event) {
     console.log("deactivate", this);
     $(this).removeClass("dropover");
-    $(".bottom-trash").removeClass(".bottom-trash-drag");
+    $(".bottom-trash").removeClass("bottom-trash-drag");
   },
   over: function (event) {
     console.log("over", event.target);
@@ -142,18 +142,19 @@ $("#trash").droppable({
   drop: function (event, ui) {
     // remove dragged element from the DOM
     ui.draggable.remove();
-    $(".bottom-trash").addClass(".bottom-trash-active");
+    $(".bottom-trash").removeClass("bottom-trash-active");
   },
   over: function (event, ui) {
-    console.log("over");
+    console.log(ui);
+    $(".bottom-trash").addClass("bottom-trash-active");
   },
   out: function (event, ui) {
     console.log("out");
-    $(".bottom-trash").removeClass(".bottom-trash-active");
+    $(".bottom-trash").removeClass("bottom-trash-active");
   },
 });
 
-// convert text field into a jquery date picker 
+// convert text field into a jquery date picker
 $("#modalDueDate").datepicker();
 ({
   minDate: 1,
@@ -301,12 +302,11 @@ $(".list-group").on("change", "input[type='text']", function () {
   auditTask($(taskSpan).closet(".list-group-item"));
 });
 
-
 setInterval(function () {
-  $(".card .list-group-item").each(function(index, el){
+  $(".card .list-group-item").each(function (index, el) {
     auditTask(el);
   });
-}, (1000 * 60) * 30);
+}, 1000 * 60 * 30);
 
 // load tasks for the first time
 loadTasks();
